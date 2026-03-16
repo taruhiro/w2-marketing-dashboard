@@ -1350,5 +1350,290 @@
       }
     }
   },
-  "ahrefs": {}
+  "ahrefs": {
+    "sheet_updated": "2026-03-11",
+    "ranking_distribution": {},
+    "focus_keywords": [
+      {
+        "keyword": "ecサイト運営",
+        "current_rank": null,
+        "rank_change": -13,
+        "cv_contribution": 9,
+        "search_vol": 1600
+      },
+      {
+        "keyword": "ecサイト構築",
+        "current_rank": 6,
+        "rank_change": -9,
+        "cv_contribution": 4,
+        "search_vol": 900
+      },
+      {
+        "keyword": "ecサイトフルスクラッチ",
+        "current_rank": 1,
+        "rank_change": -6,
+        "cv_contribution": 2,
+        "search_vol": 100
+      },
+      {
+        "keyword": "サブスクリプション",
+        "current_rank": 9,
+        "rank_change": -4,
+        "cv_contribution": 4,
+        "search_vol": 60000
+      },
+      {
+        "keyword": "越境ec",
+        "current_rank": 20,
+        "rank_change": -2,
+        "cv_contribution": 5,
+        "search_vol": 8000
+      },
+      {
+        "keyword": "ecカート",
+        "current_rank": 3,
+        "rank_change": -2,
+        "cv_contribution": 2,
+        "search_vol": 350
+      },
+      {
+        "keyword": "単品リピート通販",
+        "current_rank": 3,
+        "rank_change": -2,
+        "cv_contribution": 1,
+        "search_vol": 150
+      },
+      {
+        "keyword": "オムニチャネル事例",
+        "current_rank": 1,
+        "rank_change": -2,
+        "cv_contribution": 0,
+        "search_vol": 60
+      },
+      {
+        "keyword": "ユニファイドコマース",
+        "current_rank": 2,
+        "rank_change": -2,
+        "cv_contribution": 0,
+        "search_vol": 350
+      },
+      {
+        "keyword": "omoとは",
+        "current_rank": 36,
+        "rank_change": -1,
+        "cv_contribution": 1,
+        "search_vol": 0
+      },
+      {
+        "keyword": "btob ec",
+        "current_rank": 9,
+        "rank_change": -1,
+        "cv_contribution": 4,
+        "search_vol": 900
+      },
+      {
+        "keyword": "ecサイト 作り方",
+        "current_rank": 19,
+        "rank_change": -1,
+        "cv_contribution": 10,
+        "search_vol": 1500
+      },
+      {
+        "keyword": "単品通販",
+        "current_rank": 1,
+        "rank_change": -1,
+        "cv_contribution": 8,
+        "search_vol": 350
+      },
+      {
+        "keyword": "ecプラットフォーム",
+        "current_rank": 1,
+        "rank_change": -1,
+        "cv_contribution": 3,
+        "search_vol": 450
+      },
+      {
+        "keyword": "定期 カートシステム",
+        "current_rank": 3,
+        "rank_change": -1,
+        "cv_contribution": 6,
+        "search_vol": 0
+      },
+      {
+        "keyword": "ecサイト構築 相場",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 8,
+        "search_vol": 20
+      },
+      {
+        "keyword": "アパレルブランド 立ち上げ",
+        "current_rank": null,
+        "rank_change": 0,
+        "cv_contribution": 1,
+        "search_vol": 0
+      },
+      {
+        "keyword": "ecサイト構築 比較",
+        "current_rank": 4,
+        "rank_change": 0,
+        "cv_contribution": 4,
+        "search_vol": 200
+      },
+      {
+        "keyword": "サブスク 事例",
+        "current_rank": 2,
+        "rank_change": 0,
+        "cv_contribution": 1,
+        "search_vol": 50
+      },
+      {
+        "keyword": "ネットショップ開業",
+        "current_rank": 3,
+        "rank_change": 0,
+        "cv_contribution": 21,
+        "search_vol": 2300
+      },
+      {
+        "keyword": "メディアコマース",
+        "current_rank": 3,
+        "rank_change": 0,
+        "cv_contribution": 1,
+        "search_vol": 100
+      },
+      {
+        "keyword": "定期通販",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 0,
+        "search_vol": 150
+      },
+      {
+        "keyword": "大規模ecサイト",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 0,
+        "search_vol": 50
+      },
+      {
+        "keyword": "ネットショップ構築",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 0,
+        "search_vol": 200
+      },
+      {
+        "keyword": "自社ec",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 2,
+        "search_vol": 500
+      },
+      {
+        "keyword": "ec 事例",
+        "current_rank": 2,
+        "rank_change": 0,
+        "cv_contribution": 10,
+        "search_vol": 150
+      },
+      {
+        "keyword": "ecサイト パッケージ",
+        "current_rank": 2,
+        "rank_change": 0,
+        "cv_contribution": 8,
+        "search_vol": 100
+      },
+      {
+        "keyword": "医薬品ec",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 5,
+        "search_vol": 10
+      },
+      {
+        "keyword": "サブスクec",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 2,
+        "search_vol": 30
+      },
+      {
+        "keyword": "リピート通販",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 1,
+        "search_vol": 100
+      },
+      {
+        "keyword": "ecベンダー",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 1,
+        "search_vol": 40
+      },
+      {
+        "keyword": "サブスクリプション カートシステム",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 0,
+        "search_vol": 10
+      },
+      {
+        "keyword": "卸売 ec",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 0,
+        "search_vol": 10
+      },
+      {
+        "keyword": "ネットショップ開業 おすすめ",
+        "current_rank": 1,
+        "rank_change": 0,
+        "cv_contribution": 21,
+        "search_vol": 150
+      },
+      {
+        "keyword": "ecサイト リニューアル",
+        "current_rank": 3,
+        "rank_change": 1,
+        "cv_contribution": 2,
+        "search_vol": 500
+      },
+      {
+        "keyword": "d2cとは",
+        "current_rank": 20,
+        "rank_change": 1,
+        "cv_contribution": 0,
+        "search_vol": 11000
+      },
+      {
+        "keyword": "オムニチャネル",
+        "current_rank": 23,
+        "rank_change": 6,
+        "cv_contribution": 4,
+        "search_vol": 3700
+      },
+      {
+        "keyword": "ecサイト構築 会社",
+        "current_rank": 11,
+        "rank_change": 8,
+        "cv_contribution": 3,
+        "search_vol": 40
+      },
+      {
+        "keyword": "ecサイト asp",
+        "current_rank": 16,
+        "rank_change": 10,
+        "cv_contribution": 12,
+        "search_vol": 250
+      },
+      {
+        "keyword": "食品ec",
+        "current_rank": 13,
+        "rank_change": 12,
+        "cv_contribution": 4,
+        "search_vol": 150
+      }
+    ]
+  }
 }
