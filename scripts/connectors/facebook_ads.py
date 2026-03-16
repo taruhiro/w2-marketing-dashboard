@@ -3,6 +3,7 @@ Facebook広告（Meta広告）コネクター（ダッシュボード用）
 認証：長期アクセストークン（システムユーザー発行）
 """
 
+import json
 import os
 import requests
 
@@ -23,7 +24,7 @@ class FacebookAdsConnector:
         params = {
             "access_token": self.access_token,
             "fields": "spend,clicks,actions",
-            "time_range": f"{{'since':'{start_date}','until':'{end_date}'}}",
+            "time_range": json.dumps({"since": start_date, "until": end_date}),
             "level": "account",
         }
         response = requests.get(url, params=params, timeout=30)
