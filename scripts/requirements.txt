@@ -1,7 +1,7 @@
 google-analytics-data==0.18.14
 google-api-python-client==2.119.0
 google-auth==2.28.1
-google-ads==24.1.0
+google-ads==26.0.0
 simple-salesforce==1.12.5
 PyJWT==2.8.0
 cryptography==42.0.5
