@@ -1,0 +1,13 @@
+# 認証情報（絶対にGitHubにアップしない）
+credentials/
+*.pem
+*.json
+!data/dashboard.json
+!package.json
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/

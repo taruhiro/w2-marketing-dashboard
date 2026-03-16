@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W2 マーケティングダッシュボード</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --blue:   #1e40af;
+    --blue-l: #3b82f6;
+    --green:  #16a34a;
+    --red:    #dc2626;
+    --gray:   #6b7280;
+    --bg:     #f1f5f9;
+    --card:   #ffffff;
+    --border: #e2e8f0;
+    --text:   #1e293b;
+    --sub:    #64748b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; color: var(--text); }
+
+  /* ヘッダー */
+  .header { background: var(--blue); color: #fff; padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: .5px; }
+  .header .updated { font-size: 12px; opacity: .8; }
+
+  /* 期間タブ */
+  .period-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; gap: 0; }
+  .period-btn { padding: 14px 22px; font-size: 14px; font-weight: 500; border: none; background: none; cursor: pointer; color: var(--sub); border-bottom: 3px solid transparent; transition: all .15s; }
+  .period-btn:hover { color: var(--blue); }
+  .period-btn.active { color: var(--blue); border-bottom-color: var(--blue); font-weight: 700; }
+
+  /* メインレイアウト */
+  .main { padding: 24px 28px; max-width: 1400px; margin: 0 auto; }
+  .section-title { font-size: 15px; font-weight: 700; color: var(--sub); text-transform: uppercase; letter-spacing: .8px; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); }
+  .section-title:first-child { margin-top: 0; }
+
+  /* KPIカードグリッド */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+  .kpi-card { background: var(--card); border-radius: 10px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.07); border-left: 4px solid var(--blue-l); }
+  .kpi-card.green  { border-left-color: var(--green); }
+  .kpi-card.orange { border-left-color: #f97316; }
+  .kpi-card.purple { border-left-color: #9333ea; }
+  .kpi-card.red    { border-left-color: var(--red); }
+  .kpi-label { font-size: 11px; font-weight: 600; color: var(--sub); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .4px; }
+  .kpi-value { font-size: 28px; font-weight: 700; color: var(--text); line-height: 1; }
+  .kpi-sub   { font-size: 11px; color: var(--sub); margin-top: 4px; }
+
+  /* 比較カード */
+  .compare-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .compare-card { background: var(--card); border-radius: 10px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.07); }
+  .compare-label { font-size: 12px; font-weight: 600; color: var(--sub); margin-bottom: 10px; }
+  .compare-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .compare-period { font-size: 11px; color: var(--sub); }
+  .compare-val { font-size: 18px; font-weight: 700; }
+  .compare-val.up   { color: var(--green); }
+  .compare-val.down { color: var(--red); }
+  .compare-diff { font-size: 11px; margin-top: 4px; }
+  .diff-up   { color: var(--green); }
+  .diff-down { color: var(--red); }
+
+  /* チャートエリア */
+  .chart-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+  .chart-card { background: var(--card); border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.07); }
+  .chart-card h3 { font-size: 13px; font-weight: 600; color: var(--sub); margin-bottom: 14px; }
+  .chart-card canvas { max-height: 180px; }
+
+  /* テーブル */
+  .table-card { background: var(--card); border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.07); overflow-x: auto; }
+  .table-card h3 { font-size: 13px; font-weight: 600; color: var(--sub); margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; color: var(--sub); font-weight: 600; text-transform: uppercase; }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  tr:last-child td { border-bottom: none; }
+  .rank-badge { display: inline-block; background: var(--blue); color: #fff; border-radius: 4px; padding: 2px 7px; font-size: 12px; font-weight: 700; }
+  .rank-up   { color: var(--green); font-weight: 700; }
+  .rank-down { color: var(--red); font-weight: 700; }
+  .rank-same { color: var(--gray); }
+
+  /* ローディング */
+  .loading { text-align: center; padding: 60px; color: var(--sub); font-size: 15px; }
+
+  /* 期間表示バー */
+  .period-info { font-size: 12px; color: var(--sub); margin-bottom: 16px; background: #f8fafc; border: 1px solid var(--border); border-radius: 6px; padding: 8px 14px; display: inline-block; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>W2 マーケティングダッシュボード</h1>
+  <span class="updated" id="last-updated">読み込み中...</span>
+</div>
+
+<div class="period-bar">
+  <button class="period-btn active" data-period="current_month">当月</button>
+  <button class="period-btn" data-period="last_month">先月</button>
+  <button class="period-btn" data-period="last_30days">直近30日</button>
+  <button class="period-btn" data-period="compare">当月 vs 先月 比較</button>
+</div>
+
+<div class="main" id="main-content">
+  <div class="loading">データを読み込み中...</div>
+</div>
+
+<script>
+// ------------------------------------------------------------------ //
+// データ読み込み
+// ------------------------------------------------------------------ //
+let DB = null;
+
+fetch('./data/dashboard.json')
+  .then(r => r.json())
+  .then(data => {
+    DB = data;
+    document.getElementById('last-updated').textContent =
+      '最終更新: ' + data.updated_at;
+    renderPeriod('current_month');
+  })
+  .catch(err => {
+    document.getElementById('main-content').innerHTML =
+      `<div class="loading" style="color:#dc2626">データ読み込みエラー: ${err.message}<br>
+       GitHub Actionsを実行してdata/dashboard.jsonを更新してください。</div>`;
+  });
+
+// ------------------------------------------------------------------ //
+// タブ切り替え
+// ------------------------------------------------------------------ //
+document.querySelectorAll('.period-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (!DB) return;
+    const p = btn.dataset.period;
+    if (p === 'compare') renderCompare();
+    else renderPeriod(p);
+  });
+});
+
+// ------------------------------------------------------------------ //
+// 値フォーマット
+// ------------------------------------------------------------------ //
+const fmt = {
+  num:   v => (v ?? 0).toLocaleString(),
+  yen:   v => '¥' + (v ?? 0).toLocaleString(),
+  pct:   v => (v ?? 0).toFixed(2) + '%',
+  pos:   v => v ? v.toFixed(1) + '位' : '-',
+};
+
+function kpiCard(label, value, sub = '', color = '') {
+  return `<div class="kpi-card ${color}">
+    <div class="kpi-label">${label}</div>
+    <div class="kpi-value">${value}</div>
+    <div class="kpi-sub">${sub}</div>
+  </div>`;
+}
+
+// ------------------------------------------------------------------ //
+// 期間ビュー
+// ------------------------------------------------------------------ //
+function renderPeriod(periodKey) {
+  const p  = DB.periods[periodKey];
+  const ga = p.ga4?.summary        ?? {};
+  const ke = p.ga4?.key_events     ?? {};
+  const gs = p.gsc?.summary        ?? {};
+  const gd = p.google_ads?.summary ?? {};
+  const fb = p.facebook_ads        ?? {};
+  const sf = p.salesforce          ?? {};
+  const mql = sf.new_mql           ?? {};
+  const opp = sf.opportunities     ?? {};
+  const ahd = DB.ahrefs            ?? {};
+
+  let html = `<div class="period-info">${p.range}</div>`;
+
+  // --- 主要KPI ---
+  html += `<div class="section-title">主要 KPI</div>
+  <div class="kpi-grid">
+    ${kpiCard('新規商談数',   fmt.num(opp.total)    + '件', 'Salesforce', 'green')}
+    ${kpiCard('MQL数',        fmt.num(mql.total_mql) + '件', 'Salesforce', 'green')}
+    ${kpiCard('CV数（合計）', fmt.num(ke.total)      + '件', 'GA4（日本）')}
+    ${kpiCard('セッション数', fmt.num(ga.sessions),          'GA4（日本）')}
+    ${kpiCard('検索クリック', fmt.num(gs.clicks),            'Google Search Console')}
+    ${kpiCard('平均順位',     fmt.pos(gs.position),          'GSC')}
+    ${kpiCard('CTR',          fmt.pct(gs.ctr),               'GSC')}
+    ${kpiCard('表示回数',     fmt.num(gs.impressions),        'GSC')}
+  </div>`;
+
+  // --- 広告 ---
+  const listing = p.google_ads?.listing ?? {};
+  const pmax    = p.google_ads?.pmax    ?? {};
+  html += `<div class="section-title">広告パフォーマンス</div>
+  <div class="kpi-grid">
+    ${kpiCard('Google広告 費用',     fmt.yen(gd.cost),           'Google広告 合計', 'orange')}
+    ${kpiCard('Google広告 CV',       fmt.num(gd.conversions)+'件','Google広告 合計', 'orange')}
+    ${kpiCard('Google広告 CPA',      fmt.yen(gd.cpa),            'Google広告 合計', 'orange')}
+    ${kpiCard('リスティング 費用',   fmt.yen(listing.cost),       'リスティング')}
+    ${kpiCard('リスティング CV',     fmt.num(listing.conversions)+'件','リスティング')}
+    ${kpiCard('P-MAX 費用',          fmt.yen(pmax.cost),          'P-MAX')}
+    ${kpiCard('P-MAX CV',            fmt.num(pmax.conversions)+'件','P-MAX')}
+    ${kpiCard('Facebook広告 費用',   fmt.yen(fb.spend),           'Meta広告', 'purple')}
+    ${kpiCard('Facebook広告 CV',     fmt.num(fb.conversions)+'件','Meta広告', 'purple')}
+    ${kpiCard('Facebook広告 CPA',    fmt.yen(fb.cpa),             'Meta広告', 'purple')}
+  </div>`;
+
+  // --- Salesforce ---
+  html += `<div class="section-title">Salesforce（リード・商談）</div>
+  <div class="kpi-grid">
+    ${kpiCard('MQL（企画段階）',     fmt.num(mql.total_mql)+'件',  '新規リード')}
+    ${kpiCard('情報収集リード',      fmt.num(mql.total_info)+'件', '新規リード')}
+    ${kpiCard('新規商談',            fmt.num(opp.total)+'件',       '新規商談')}
+    ${kpiCard('追加MQL',             fmt.num((sf.additional_mql?.total) ?? 0)+'件', '有望リード転換')}
+  </div>`;
+
+  // --- Salesforce 獲得元テーブル ---
+  if (mql.by_source && mql.by_source.length > 0) {
+    html += `<div class="table-card" style="margin-top:14px">
+      <h3>リード獲得元 内訳</h3>
+      <table><thead><tr>
+        <th>獲得元</th><th>情報収集</th><th>MQL</th>
+      </tr></thead><tbody>`;
+    mql.by_source.slice(0, 10).forEach(r => {
+      html += `<tr><td>${r.source}</td><td>${r.info_count}件</td><td><b>${r.mql_count}件</b></td></tr>`;
+    });
+    html += `</tbody></table></div>`;
+  }
+
+  // --- チャート（SEO） ---
+  html += `<div class="section-title">SEO チャート</div>
+  <div class="chart-grid">
+    <div class="chart-card"><h3>検索クリック・表示回数</h3><canvas id="chart-seo-summary"></canvas></div>
+    <div class="chart-card"><h3>CTR と 平均掲載順位</h3><canvas id="chart-seo-detail"></canvas></div>
+  </div>`;
+
+  // --- GSC クエリテーブル ---
+  const queries = p.gsc?.top_queries ?? [];
+  if (queries.length > 0) {
+    html += `<div class="table-card" style="margin-top:14px">
+      <h3>検索クエリ TOP10</h3>
+      <table><thead><tr>
+        <th>クエリ</th><th>クリック</th><th>表示回数</th><th>CTR</th><th>平均順位</th>
+      </tr></thead><tbody>`;
+    queries.slice(0, 10).forEach(q => {
+      html += `<tr>
+        <td>${q.query}</td>
+        <td>${fmt.num(q.clicks)}</td>
+        <td>${fmt.num(q.impressions)}</td>
+        <td>${fmt.pct(q.ctr)}</td>
+        <td>${fmt.pos(q.position)}</td>
+      </tr>`;
+    });
+    html += `</tbody></table></div>`;
+  }
+
+  // --- Ahrefs（期間非依存）---
+  html += renderAhrefs(ahd);
+
+  document.getElementById('main-content').innerHTML = html;
+
+  // チャート描画
+  setTimeout(() => {
+    drawSeoSummaryChart('chart-seo-summary', gs);
+    drawSeoDetailChart('chart-seo-detail', gs);
+  }, 50);
+}
+
+// ------------------------------------------------------------------ //
+// 比較ビュー
+// ------------------------------------------------------------------ //
+function renderCompare() {
+  const cur  = DB.periods.current_month;
+  const prev = DB.periods.last_month;
+
+  function diff(a, b) {
+    if (!b || b === 0) return null;
+    const d = a - b;
+    const pct = ((d / b) * 100).toFixed(1);
+    const cls = d >= 0 ? 'diff-up' : 'diff-down';
+    const sign = d >= 0 ? '+' : '';
+    return `<span class="${cls}">${sign}${Number(d).toLocaleString()}（${sign}${pct}%）</span>`;
+  }
+
+  function cmpCard(label, curVal, prevVal, fmtFn) {
+    const d = diff(curVal, prevVal);
+    const color = (curVal ?? 0) >= (prevVal ?? 0) ? 'up' : 'down';
+    return `<div class="compare-card">
+      <div class="compare-label">${label}</div>
+      <div class="compare-row">
+        <span class="compare-period">${cur.label}</span>
+        <span class="compare-val ${color}">${fmtFn(curVal)}</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-period">${prev.label}</span>
+        <span class="compare-val">${fmtFn(prevVal)}</span>
+      </div>
+      ${d ? `<div class="compare-diff">前月比: ${d}</div>` : ''}
+    </div>`;
+  }
+
+  const cga  = cur.ga4?.summary        ?? {};
+  const pga  = prev.ga4?.summary       ?? {};
+  const cke  = cur.ga4?.key_events     ?? {};
+  const pke  = prev.ga4?.key_events    ?? {};
+  const cgs  = cur.gsc?.summary        ?? {};
+  const pgs  = prev.gsc?.summary       ?? {};
+  const cgd  = cur.google_ads?.summary ?? {};
+  const pgd  = prev.google_ads?.summary?? {};
+  const cfb  = cur.facebook_ads        ?? {};
+  const pfb  = prev.facebook_ads       ?? {};
+  const csf  = cur.salesforce          ?? {};
+  const psf  = prev.salesforce         ?? {};
+  const cmql = csf.new_mql ?? {};
+  const pmql = psf.new_mql ?? {};
+  const copp = csf.opportunities ?? {};
+  const popp = psf.opportunities ?? {};
+
+  let html = `<div class="period-info">
+    ${cur.range} vs ${prev.range}
+  </div>
+  <div class="section-title">主要 KPI 比較</div>
+  <div class="compare-grid">
+    ${cmpCard('セッション数',     cga.sessions,  pga.sessions,  fmt.num)}
+    ${cmpCard('CV数（合計）',     cke.total,      pke.total,     v => fmt.num(v)+'件')}
+    ${cmpCard('検索クリック',     cgs.clicks,    pgs.clicks,    fmt.num)}
+    ${cmpCard('平均掲載順位',     cgs.position,  pgs.position,  v => v ? v.toFixed(1)+'位' : '-')}
+    ${cmpCard('CTR',              cgs.ctr,       pgs.ctr,       fmt.pct)}
+    ${cmpCard('MQL数',            cmql.total_mql, pmql.total_mql, v => fmt.num(v)+'件')}
+    ${cmpCard('新規商談数',       copp.total,    popp.total,    v => fmt.num(v)+'件')}
+  </div>
+  <div class="section-title">広告 比較</div>
+  <div class="compare-grid">
+    ${cmpCard('Google広告 費用',  cgd.cost,      pgd.cost,      fmt.yen)}
+    ${cmpCard('Google広告 CV',    cgd.conversions, pgd.conversions, v => fmt.num(v)+'件')}
+    ${cmpCard('Google広告 CPA',   cgd.cpa,       pgd.cpa,       fmt.yen)}
+    ${cmpCard('Facebook広告 費用',cfb.spend,     pfb.spend,     fmt.yen)}
+    ${cmpCard('Facebook広告 CV',  cfb.conversions, pfb.conversions, v => fmt.num(v)+'件')}
+    ${cmpCard('Facebook広告 CPA', cfb.cpa,       pfb.cpa,       fmt.yen)}
+  </div>
+  <div class="section-title">SEO 比較チャート</div>
+  <div class="chart-grid">
+    <div class="chart-card"><h3>検索クリック数 比較</h3><canvas id="chart-compare-clicks"></canvas></div>
+    <div class="chart-card"><h3>CV数 比較</h3><canvas id="chart-compare-cv"></canvas></div>
+    <div class="chart-card"><h3>広告費用 比較</h3><canvas id="chart-compare-ads"></canvas></div>
+  </div>`;
+
+  html += renderAhrefs(DB.ahrefs ?? {});
+
+  document.getElementById('main-content').innerHTML = html;
+
+  setTimeout(() => {
+    const labels = [cur.label, prev.label];
+    const blue   = ['#1e40af', '#93c5fd'];
+    const green  = ['#16a34a', '#86efac'];
+    const orange = ['#ea580c', '#fdba74'];
+
+    new Chart(document.getElementById('chart-compare-clicks'), {
+      type: 'bar',
+      data: { labels, datasets: [{ data: [cgs.clicks, pgs.clicks], backgroundColor: blue }] },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+    new Chart(document.getElementById('chart-compare-cv'), {
+      type: 'bar',
+      data: { labels, datasets: [{ data: [cke.total, pke.total], backgroundColor: green }] },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+    new Chart(document.getElementById('chart-compare-ads'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          { label: 'Google広告', data: [cgd.cost, pgd.cost], backgroundColor: orange },
+          { label: 'Facebook広告', data: [cfb.spend, pfb.spend], backgroundColor: ['#7c3aed', '#c4b5fd'] }
+        ]
+      },
+      options: { responsive: true, scales: { x: { stacked: false } } }
+    });
+  }, 50);
+}
+
+// ------------------------------------------------------------------ //
+// Ahrefs セクション（期間非依存）
+// ------------------------------------------------------------------ //
+function renderAhrefs(ahd) {
+  const dist = ahd.ranking_distribution ?? {};
+  const kws  = ahd.focus_keywords       ?? [];
+
+  let html = `<div class="section-title">
+    SEO 順位分布（Ahrefs）
+    ${ahd.sheet_updated ? `<span style="font-size:11px;font-weight:400;margin-left:8px">最終更新: ${ahd.sheet_updated}</span>` : ''}
+  </div>
+  <div class="kpi-grid">
+    ${kpiCard('1〜5位',    (dist['1_5']   ?? 0).toFixed(1)+'%', 'キーワード全体に占める割合', 'green')}
+    ${kpiCard('6〜10位',   (dist['6_10']  ?? 0).toFixed(1)+'%', 'キーワード全体に占める割合')}
+    ${kpiCard('11〜20位',  (dist['11_20'] ?? 0).toFixed(1)+'%', 'キーワード全体に占める割合', 'orange')}
+    ${kpiCard('20位〜',    (dist['20plus']?? 0).toFixed(1)+'%', 'キーワード全体に占める割合', 'red')}
+  </div>
+  <div class="chart-grid" style="margin-top:14px">
+    <div class="chart-card"><h3>順位分布</h3><canvas id="chart-dist"></canvas></div>
+  </div>`;
+
+  if (kws.length > 0) {
+    html += `<div class="table-card" style="margin-top:14px">
+      <h3>注力キーワード 最新順位</h3>
+      <table><thead><tr>
+        <th>キーワード</th><th>最新順位</th><th>変動</th><th>CV貢献</th><th>検索Vol</th>
+      </tr></thead><tbody>`;
+    kws.forEach(k => {
+      const rankStr = k.current_rank ? `<span class="rank-badge">${k.current_rank}位</span>` : '-';
+      let changeStr = '-';
+      if (k.rank_change !== null && k.rank_change !== undefined) {
+        if (k.rank_change < 0) changeStr = `<span class="rank-up">▲${Math.abs(k.rank_change)}</span>`;
+        else if (k.rank_change > 0) changeStr = `<span class="rank-down">▼${k.rank_change}</span>`;
+        else changeStr = `<span class="rank-same">−</span>`;
+      }
+      html += `<tr>
+        <td>${k.keyword}</td>
+        <td>${rankStr}</td>
+        <td>${changeStr}</td>
+        <td>${k.cv_contribution ?? 0}</td>
+        <td>${fmt.num(k.search_vol)}</td>
+      </tr>`;
+    });
+    html += `</tbody></table></div>`;
+  }
+
+  // 順位分布チャート（ドーナツ）は後で描画
+  setTimeout(() => {
+    const el = document.getElementById('chart-dist');
+    if (!el) return;
+    new Chart(el, {
+      type: 'doughnut',
+      data: {
+        labels: ['1〜5位', '6〜10位', '11〜20位', '20位〜'],
+        datasets: [{
+          data: [dist['1_5'] ?? 0, dist['6_10'] ?? 0, dist['11_20'] ?? 0, dist['20plus'] ?? 0],
+          backgroundColor: ['#16a34a', '#3b82f6', '#f97316', '#dc2626'],
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+    });
+  }, 80);
+
+  return html;
+}
+
+// ------------------------------------------------------------------ //
+// チャート描画ヘルパー
+// ------------------------------------------------------------------ //
+function drawSeoSummaryChart(id, gs) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  new Chart(el, {
+    type: 'bar',
+    data: {
+      labels: ['クリック数', '表示回数'],
+      datasets: [{ data: [gs.clicks ?? 0, gs.impressions ?? 0], backgroundColor: ['#1e40af', '#93c5fd'] }]
+    },
+    options: { responsive: true, plugins: { legend: { display: false } } }
+  });
+}
+
+function drawSeoDetailChart(id, gs) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  new Chart(el, {
+    type: 'bar',
+    data: {
+      labels: ['CTR (%)', '平均掲載順位'],
+      datasets: [{ data: [gs.ctr ?? 0, gs.position ?? 0], backgroundColor: ['#16a34a', '#9333ea'] }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+    }
+  });
+}
+</script>
+</body>
+</html>

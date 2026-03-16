@@ -1,0 +1,60 @@
+name: Update Dashboard Data
+
+on:
+  schedule:
+    - cron: '0 23 * * *'   # 毎日 UTC 23:00 = 日本時間 翌AM 8:00
+  workflow_dispatch:         # GitHubの画面から手動実行も可能
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをダウンロード
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: ライブラリをインストール
+        run: pip install -r scripts/requirements.txt
+
+      - name: GCP認証ファイルを作成
+        run: |
+          echo '${{ secrets.GCP_SERVICE_ACCOUNT_JSON }}' > /tmp/gcp_credentials.json
+
+      - name: Salesforce秘密鍵ファイルを作成
+        run: |
+          echo '${{ secrets.SF_PRIVATE_KEY }}' > /tmp/sf_private_key.pem
+
+      - name: マーケティングデータを取得
+        env:
+          GCP_CREDENTIALS_PATH: /tmp/gcp_credentials.json
+          SF_PRIVATE_KEY_PATH:  /tmp/sf_private_key.pem
+          SF_PASSWORD:          ${{ secrets.SF_PASSWORD }}
+          GOOGLE_ADS_DEVELOPER_TOKEN:   ${{ secrets.GOOGLE_ADS_DEVELOPER_TOKEN }}
+          GOOGLE_ADS_REFRESH_TOKEN:     ${{ secrets.GOOGLE_ADS_REFRESH_TOKEN }}
+          GOOGLE_ADS_CLIENT_ID:         ${{ secrets.GOOGLE_ADS_CLIENT_ID }}
+          GOOGLE_ADS_CLIENT_SECRET:     ${{ secrets.GOOGLE_ADS_CLIENT_SECRET }}
+          GOOGLE_ADS_LOGIN_CUSTOMER_ID: ${{ secrets.GOOGLE_ADS_LOGIN_CUSTOMER_ID }}
+          GOOGLE_ADS_CUSTOMER_ID:       ${{ secrets.GOOGLE_ADS_CUSTOMER_ID }}
+          FB_ACCESS_TOKEN:  ${{ secrets.FB_ACCESS_TOKEN }}
+          FB_AD_ACCOUNT_ID: ${{ secrets.FB_AD_ACCOUNT_ID }}
+          AHREFS_SHEET_ID:   ${{ secrets.AHREFS_SHEET_ID }}
+          AHREFS_SHEET_NAME: ${{ secrets.AHREFS_SHEET_NAME }}
+        run: python scripts/fetch_all.py
+
+      - name: 認証ファイルを削除
+        if: always()
+        run: |
+          rm -f /tmp/gcp_credentials.json /tmp/sf_private_key.pem
+
+      - name: データをコミット・プッシュ
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/dashboard.json
+          git diff --staged --quiet || git commit -m "📊 データ更新: $(date '+%Y-%m-%d')"
+          git push

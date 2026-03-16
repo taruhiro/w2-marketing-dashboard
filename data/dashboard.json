@@ -1,0 +1,53 @@
+{
+  "updated_at": "2026-03-16",
+  "_note": "このファイルはGitHub Actionsにより毎日自動更新されます。初回はサンプルデータです。",
+  "periods": {
+    "current_month": {
+      "label": "当月（3月）",
+      "range": "2026/03/01 〜 2026/03/15",
+      "ga4": {
+        "summary": {"sessions": 0, "users": 0, "conversions": 0},
+        "key_events": {"total": 0, "total_excl_non_mql": 0, "breakdown": []},
+        "top_pages": []
+      },
+      "gsc": {
+        "summary": {"clicks": 0, "impressions": 0, "ctr": 0, "position": 0},
+        "top_queries": []
+      },
+      "google_ads": {
+        "summary": {"cost": 0, "clicks": 0, "impressions": 0, "ctr": 0, "conversions": 0, "cpa": 0},
+        "listing": {"cost": 0, "clicks": 0, "conversions": 0, "cpa": 0},
+        "pmax": {"cost": 0, "clicks": 0, "conversions": 0, "cpa": 0}
+      },
+      "facebook_ads": {"spend": 0, "clicks": 0, "conversions": 0, "cpa": 0},
+      "salesforce": {
+        "new_mql": {"total_mql": 0, "total_info": 0, "by_source": []},
+        "opportunities": {"total": 0, "by_source": [], "by_product": []},
+        "additional_mql": {"total": 0, "by_source": []}
+      }
+    },
+    "last_month": {
+      "label": "先月（2月）",
+      "range": "2026/02/01 〜 2026/02/28",
+      "ga4": {"summary": {"sessions": 0, "users": 0, "conversions": 0}, "key_events": {"total": 0}, "top_pages": []},
+      "gsc": {"summary": {"clicks": 0, "impressions": 0, "ctr": 0, "position": 0}, "top_queries": []},
+      "google_ads": {"summary": {"cost": 0, "clicks": 0, "conversions": 0, "cpa": 0}, "listing": {}, "pmax": {}},
+      "facebook_ads": {"spend": 0, "clicks": 0, "conversions": 0, "cpa": 0},
+      "salesforce": {"new_mql": {"total_mql": 0, "total_info": 0}, "opportunities": {"total": 0}, "additional_mql": {"total": 0}}
+    },
+    "last_30days": {
+      "label": "直近30日",
+      "range": "2026/02/15 〜 2026/03/15",
+      "ga4": {"summary": {"sessions": 0, "users": 0, "conversions": 0}, "key_events": {"total": 0}, "top_pages": []},
+      "gsc": {"summary": {"clicks": 0, "impressions": 0, "ctr": 0, "position": 0}, "top_queries": []},
+      "google_ads": {"summary": {"cost": 0, "clicks": 0, "conversions": 0, "cpa": 0}, "listing": {}, "pmax": {}},
+      "facebook_ads": {"spend": 0, "clicks": 0, "conversions": 0, "cpa": 0},
+      "salesforce": {"new_mql": {"total_mql": 0, "total_info": 0}, "opportunities": {"total": 0}, "additional_mql": {"total": 0}}
+    }
+  },
+  "ahrefs": {
+    "sheet_updated": null,
+    "ranking_distribution": {"1_5": 0, "6_10": 0, "11_20": 0, "20plus": 0},
+    "focus_keywords": []
+  }
+}
