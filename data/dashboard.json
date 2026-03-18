@@ -6,7 +6,7 @@
       "range": "2026/03/01 〜 2026/03/17",
       "ga4": {
         "summary": {
-          "sessions": 21341,
+          "sessions": 21271,
           "users": 15860,
           "conversions": 319
         },
@@ -75,12 +75,12 @@
         "top_pages": [
           {
             "page": "/",
-            "sessions": 3453,
+            "sessions": 3474,
             "users": 2475
           },
           {
             "page": "/example/",
-            "sessions": 1068,
+            "sessions": 1067,
             "users": 620
           },
           {
@@ -90,12 +90,12 @@
           },
           {
             "page": "/company/",
-            "sessions": 724,
+            "sessions": 723,
             "users": 566
           },
           {
             "page": "/corporate/",
-            "sessions": 629,
+            "sessions": 627,
             "users": 527
           },
           {
@@ -233,7 +233,7 @@
             {
               "source": "HP",
               "info_count": 5,
-              "mql_count": 18
+              "mql_count": 19
             },
             {
               "source": "ミカタWP",
@@ -292,7 +292,7 @@
             }
           ],
           "total_info": 174,
-          "total_mql": 106
+          "total_mql": 107
         },
         "opportunities": {
           "by_product": [
@@ -306,7 +306,7 @@
             },
             {
               "source": "06）w2Commerce EP（ミニ）",
-              "total": 10
+              "total": 9
             },
             {
               "source": "V5",
@@ -321,11 +321,11 @@
               "total": 2
             },
             {
-              "source": "Other",
-              "total": 1
+              "source": "05）リピートPLUS EP（ミニ）",
+              "total": 2
             },
             {
-              "source": "05）リピートPLUS EP（ミニ）",
+              "source": "Other",
               "total": 1
             },
             {
@@ -656,7 +656,7 @@
           "by_source": [
             {
               "source": "セミナー/共催(アライアンス)",
-              "info_count": 200,
+              "info_count": 199,
               "mql_count": 16
             },
             {
@@ -730,7 +730,7 @@
               "mql_count": 0
             }
           ],
-          "total_info": 368,
+          "total_info": 367,
           "total_mql": 214
         },
         "opportunities": {
@@ -904,7 +904,7 @@
       "range": "2026/02/16 〜 2026/03/17",
       "ga4": {
         "summary": {
-          "sessions": 38141,
+          "sessions": 38156,
           "users": 27433,
           "conversions": 677
         },
@@ -973,22 +973,22 @@
         "top_pages": [
           {
             "page": "/",
-            "sessions": 5900,
+            "sessions": 5932,
             "users": 4061
           },
           {
             "page": "/example/",
-            "sessions": 2166,
+            "sessions": 2164,
             "users": 1092
           },
           {
             "page": "/corporate/company_info/",
-            "sessions": 1848,
+            "sessions": 1849,
             "users": 1433
           },
           {
             "page": "/company/",
-            "sessions": 1259,
+            "sessions": 1258,
             "users": 979
           },
           {
@@ -998,7 +998,7 @@
           },
           {
             "page": "/corporate/",
-            "sessions": 1028,
+            "sessions": 1027,
             "users": 840
           },
           {
@@ -1115,7 +1115,7 @@
           "by_source": [
             {
               "source": "セミナー/共催(アライアンス)",
-              "info_count": 179,
+              "info_count": 178,
               "mql_count": 16
             },
             {
@@ -1131,7 +1131,7 @@
             {
               "source": "HP",
               "info_count": 9,
-              "mql_count": 40
+              "mql_count": 41
             },
             {
               "source": "ミカタWP",
@@ -1194,8 +1194,8 @@
               "mql_count": 1
             }
           ],
-          "total_info": 378,
-          "total_mql": 226
+          "total_info": 377,
+          "total_mql": 227
         },
         "opportunities": {
           "by_product": [
@@ -1209,7 +1209,7 @@
             },
             {
               "source": "06）w2Commerce EP（ミニ）",
-              "total": 20
+              "total": 19
             },
             {
               "source": "V5",
@@ -1221,7 +1221,7 @@
             },
             {
               "source": "05）リピートPLUS EP（ミニ）",
-              "total": 4
+              "total": 5
             },
             {
               "source": "Other",
