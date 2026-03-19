@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-03-18",
+  "updated_at": "2026-03-19",
   "periods": {
     "current_month": {
       "label": "当月（03月）",
-      "range": "2026/03/01 〜 2026/03/17",
+      "range": "2026/03/01 〜 2026/03/18",
       "ga4": {
         "summary": {
-          "sessions": 21271,
-          "users": 15860,
-          "conversions": 319
+          "sessions": 22746,
+          "users": 16819,
+          "conversions": 346
         },
         "key_events": {
           "breakdown": [
             {
               "event": "共通_CV",
-              "count": 101
+              "count": 111
             },
             {
               "event": "W2RepeatCV",
-              "count": 10
+              "count": 11
             },
             {
               "event": "W2RepeatFood_CV",
@@ -30,15 +30,15 @@
             },
             {
               "event": "ヘッダー問い合わせCV",
-              "count": 64
+              "count": 69
             },
             {
               "event": "ヘッダー資料請求CV",
-              "count": 22
+              "count": 23
             },
             {
               "event": "セミナーCV",
-              "count": 110
+              "count": 120
             },
             {
               "event": "W2_FB広告CV",
@@ -69,139 +69,139 @@
               "count": 0
             }
           ],
-          "total": 319,
-          "total_excl_non_mql": 255
+          "total": 346,
+          "total_excl_non_mql": 277
         },
         "top_pages": [
           {
             "page": "/",
-            "sessions": 3474,
-            "users": 2475
+            "sessions": 3771,
+            "users": 2682
           },
           {
             "page": "/example/",
-            "sessions": 1067,
-            "users": 620
+            "sessions": 1134,
+            "users": 654
           },
           {
             "page": "/corporate/company_info/",
-            "sessions": 996,
-            "users": 786
+            "sessions": 1082,
+            "users": 855
           },
           {
             "page": "/company/",
-            "sessions": 723,
-            "users": 566
+            "sessions": 789,
+            "users": 614
           },
           {
             "page": "/corporate/",
-            "sessions": 627,
-            "users": 527
+            "sessions": 679,
+            "users": 571
           },
           {
             "page": "/useful_info_ec/1110/",
-            "sessions": 534,
-            "users": 466
+            "sessions": 580,
+            "users": 507
           },
           {
             "page": "/useful_info_ec/netshop-osusume/",
-            "sessions": 494,
-            "users": 423
+            "sessions": 545,
+            "users": 467
           },
           {
             "page": "/w2_btob/",
-            "sessions": 489,
-            "users": 431
+            "sessions": 504,
+            "users": 444
           },
           {
             "page": "/useful_info_ec/rebate/",
-            "sessions": 465,
-            "users": 401
+            "sessions": 495,
+            "users": 426
           },
           {
             "page": "/w2_unified/",
-            "sessions": 416,
-            "users": 317
+            "sessions": 446,
+            "users": 339
           }
         ]
       },
       "gsc": {
         "summary": {
-          "clicks": 2949,
-          "impressions": 757571,
-          "ctr": 0.39,
+          "clicks": 3518,
+          "impressions": 848516,
+          "ctr": 0.41,
           "position": 9.1
         },
         "top_queries": [
           {
             "query": "w2",
-            "clicks": 498,
-            "impressions": 7724,
-            "ctr": 6.45,
+            "clicks": 587,
+            "impressions": 8889,
+            "ctr": 6.6,
             "position": 1.5
           },
           {
             "query": "w2株式会社",
-            "clicks": 342,
-            "impressions": 4525,
-            "ctr": 7.56,
-            "position": 3.0
+            "clicks": 418,
+            "impressions": 5372,
+            "ctr": 7.78,
+            "position": 3.1
           },
           {
             "query": "ライブコマース",
-            "clicks": 62,
-            "impressions": 7437,
-            "ctr": 0.83,
-            "position": 3.2
+            "clicks": 77,
+            "impressions": 8872,
+            "ctr": 0.87,
+            "position": 3.0
           },
           {
             "query": "ライブコマースとは",
-            "clicks": 56,
-            "impressions": 9375,
-            "ctr": 0.6,
-            "position": 2.7
+            "clicks": 70,
+            "impressions": 11152,
+            "ctr": 0.63,
+            "position": 2.6
           },
           {
             "query": "ｗ２株式会社",
-            "clicks": 51,
-            "impressions": 800,
-            "ctr": 6.38,
+            "clicks": 68,
+            "impressions": 958,
+            "ctr": 7.1,
             "position": 3.2
           },
           {
-            "query": "ｗ２",
-            "clicks": 33,
-            "impressions": 404,
-            "ctr": 8.17,
-            "position": 1.5
+            "query": "0344051419",
+            "clicks": 40,
+            "impressions": 283,
+            "ctr": 14.13,
+            "position": 2.8
           },
           {
             "query": "d2cブランド",
-            "clicks": 32,
-            "impressions": 1377,
-            "ctr": 2.32,
+            "clicks": 36,
+            "impressions": 1584,
+            "ctr": 2.27,
             "position": 2.4
           },
           {
-            "query": "posレジ",
-            "clicks": 32,
-            "impressions": 9371,
-            "ctr": 0.34,
-            "position": 5.9
+            "query": "ecサイト運営",
+            "clicks": 36,
+            "impressions": 3594,
+            "ctr": 1.0,
+            "position": 2.5
+          },
+          {
+            "query": "ｗ２",
+            "clicks": 36,
+            "impressions": 456,
+            "ctr": 7.89,
+            "position": 1.4
           },
           {
             "query": "w2 repeat",
-            "clicks": 32,
-            "impressions": 249,
-            "ctr": 12.85,
-            "position": 6.7
-          },
-          {
-            "query": "0344051419",
-            "clicks": 31,
-            "impressions": 241,
-            "ctr": 12.86,
-            "position": 2.9
+            "clicks": 35,
+            "impressions": 292,
+            "ctr": 11.99,
+            "position": 6.8
           }
         ]
       },
@@ -216,14 +216,14 @@
         "new_mql": {
           "by_source": [
             {
-              "source": "BOXIL",
-              "info_count": 27,
-              "mql_count": 54
+              "source": "セミナー/共催(アライアンス)",
+              "info_count": 116,
+              "mql_count": 15
             },
             {
-              "source": "セミナー/共催(アライアンス)",
-              "info_count": 65,
-              "mql_count": 7
+              "source": "BOXIL",
+              "info_count": 27,
+              "mql_count": 56
             },
             {
               "source": "展示会",
@@ -233,17 +233,17 @@
             {
               "source": "HP",
               "info_count": 5,
-              "mql_count": 19
+              "mql_count": 22
+            },
+            {
+              "source": "ホワイトペーパー（HP）",
+              "info_count": 14,
+              "mql_count": 6
             },
             {
               "source": "ミカタWP",
               "info_count": 17,
               "mql_count": 2
-            },
-            {
-              "source": "ホワイトペーパー（HP）",
-              "info_count": 12,
-              "mql_count": 6
             },
             {
               "source": "FB広告（製品獲得）",
@@ -286,23 +286,28 @@
               "mql_count": 1
             },
             {
+              "source": "eccLab",
+              "info_count": 1,
+              "mql_count": 0
+            },
+            {
               "source": "ウェビナー、ウェブイベント（社外）",
               "info_count": 0,
               "mql_count": 0
             }
           ],
-          "total_info": 174,
-          "total_mql": 107
+          "total_info": 228,
+          "total_mql": 120
         },
         "opportunities": {
           "by_product": [
             {
               "source": "Std",
-              "total": 31
+              "total": 32
             },
             {
               "source": "08）w2Commerce EP",
-              "total": 14
+              "total": 15
             },
             {
               "source": "06）w2Commerce EP（ミニ）",
@@ -310,7 +315,7 @@
             },
             {
               "source": "V5",
-              "total": 8
+              "total": 9
             },
             {
               "source": "Pro",
@@ -340,22 +345,22 @@
             },
             {
               "source": "BOXIL",
-              "total": 11
+              "total": 12
             },
             {
               "source": "アライアンス",
               "total": 11
             },
             {
+              "source": "HP",
+              "total": 8
+            },
+            {
               "source": "セミナー/共催(アライアンス)",
               "total": 8
             },
             {
-              "source": "HP",
-              "total": 7
-            },
-            {
-              "source": "FB広告（製品獲得）",
+              "source": "リスティング広告",
               "total": 3
             },
             {
@@ -363,7 +368,7 @@
               "total": 3
             },
             {
-              "source": "リスティング広告",
+              "source": "FB広告（製品獲得）",
               "total": 3
             },
             {
@@ -389,9 +394,13 @@
             {
               "source": "受電",
               "total": 1
+            },
+            {
+              "source": "外注ベンダー",
+              "total": 1
             }
           ],
-          "total": 71
+          "total": 74
         },
         "additional_mql": {
           "by_source": [
@@ -400,11 +409,11 @@
               "total": 4
             },
             {
-              "source": "HP",
-              "total": 3
+              "source": "ミツモア",
+              "total": 4
             },
             {
-              "source": "ミツモア",
+              "source": "HP",
               "total": 3
             },
             {
@@ -436,7 +445,7 @@
               "total": 1
             }
           ],
-          "total": 20
+          "total": 21
         }
       }
     },
@@ -656,7 +665,7 @@
           "by_source": [
             {
               "source": "セミナー/共催(アライアンス)",
-              "info_count": 199,
+              "info_count": 204,
               "mql_count": 16
             },
             {
@@ -730,7 +739,7 @@
               "mql_count": 0
             }
           ],
-          "total_info": 367,
+          "total_info": 372,
           "total_mql": 214
         },
         "opportunities": {
@@ -901,22 +910,22 @@
     },
     "last_30days": {
       "label": "直近30日",
-      "range": "2026/02/16 〜 2026/03/17",
+      "range": "2026/02/17 〜 2026/03/18",
       "ga4": {
         "summary": {
-          "sessions": 38156,
-          "users": 27433,
-          "conversions": 677
+          "sessions": 38049,
+          "users": 27248,
+          "conversions": 645
         },
         "key_events": {
           "breakdown": [
             {
               "event": "共通_CV",
-              "count": 200
+              "count": 197
             },
             {
               "event": "W2RepeatCV",
-              "count": 20
+              "count": 18
             },
             {
               "event": "W2RepeatFood_CV",
@@ -928,15 +937,15 @@
             },
             {
               "event": "ヘッダー問い合わせCV",
-              "count": 121
+              "count": 118
             },
             {
               "event": "ヘッダー資料請求CV",
-              "count": 46
+              "count": 43
             },
             {
               "event": "セミナーCV",
-              "count": 265
+              "count": 244
             },
             {
               "event": "W2_FB広告CV",
@@ -967,139 +976,139 @@
               "count": 0
             }
           ],
-          "total": 677,
-          "total_excl_non_mql": 556
+          "total": 645,
+          "total_excl_non_mql": 527
         },
         "top_pages": [
           {
             "page": "/",
-            "sessions": 5932,
-            "users": 4061
+            "sessions": 6082,
+            "users": 4134
           },
           {
             "page": "/example/",
-            "sessions": 2164,
-            "users": 1092
+            "sessions": 2137,
+            "users": 1077
           },
           {
             "page": "/corporate/company_info/",
-            "sessions": 1849,
-            "users": 1433
+            "sessions": 1856,
+            "users": 1441
           },
           {
             "page": "/company/",
-            "sessions": 1258,
+            "sessions": 1261,
             "users": 979
           },
           {
             "page": "/w2_repeat_fblp/",
-            "sessions": 1103,
-            "users": 1055
+            "sessions": 1096,
+            "users": 1047
           },
           {
             "page": "/corporate/",
-            "sessions": 1027,
-            "users": 840
+            "sessions": 1039,
+            "users": 850
           },
           {
             "page": "/useful_info_ec/1110/",
-            "sessions": 952,
-            "users": 830
+            "sessions": 956,
+            "users": 833
           },
           {
             "page": "/useful_info_ec/netshop-osusume/",
-            "sessions": 878,
-            "users": 733
+            "sessions": 894,
+            "users": 746
           },
           {
             "page": "/useful_info_ec/rebate/",
-            "sessions": 761,
-            "users": 646
+            "sessions": 765,
+            "users": 652
           },
           {
             "page": "/w2_btob/",
-            "sessions": 706,
-            "users": 598
+            "sessions": 703,
+            "users": 600
           }
         ]
       },
       "gsc": {
         "summary": {
-          "clicks": 5419,
-          "impressions": 1373445,
-          "ctr": 0.39,
-          "position": 9.0
+          "clicks": 5717,
+          "impressions": 1418537,
+          "ctr": 0.4,
+          "position": 8.9
         },
         "top_queries": [
           {
             "query": "w2",
-            "clicks": 967,
-            "impressions": 14491,
-            "ctr": 6.67,
+            "clicks": 1002,
+            "impressions": 15127,
+            "ctr": 6.62,
             "position": 1.5
           },
           {
             "query": "w2株式会社",
-            "clicks": 600,
-            "impressions": 7806,
-            "ctr": 7.69,
-            "position": 3.4
+            "clicks": 654,
+            "impressions": 8275,
+            "ctr": 7.9,
+            "position": 3.3
           },
           {
             "query": "ライブコマース",
-            "clicks": 102,
-            "impressions": 13542,
-            "ctr": 0.75,
-            "position": 3.4
+            "clicks": 112,
+            "impressions": 14554,
+            "ctr": 0.77,
+            "position": 3.3
           },
           {
             "query": "ライブコマースとは",
-            "clicks": 97,
-            "impressions": 16561,
-            "ctr": 0.59,
-            "position": 2.7
+            "clicks": 108,
+            "impressions": 17970,
+            "ctr": 0.6,
+            "position": 2.6
           },
           {
             "query": "ｗ２株式会社",
-            "clicks": 80,
-            "impressions": 1239,
-            "ctr": 6.46,
+            "clicks": 93,
+            "impressions": 1370,
+            "ctr": 6.79,
             "position": 3.4
           },
           {
             "query": "0344051419",
-            "clicks": 58,
-            "impressions": 397,
-            "ctr": 14.61,
+            "clicks": 61,
+            "impressions": 410,
+            "ctr": 14.88,
             "position": 2.7
           },
           {
-            "query": "ｗ２",
-            "clicks": 58,
-            "impressions": 891,
-            "ctr": 6.51,
-            "position": 1.4
+            "query": "ecサイト運営",
+            "clicks": 57,
+            "impressions": 6734,
+            "ctr": 0.85,
+            "position": 2.5
           },
           {
-            "query": "posレジ",
+            "query": "btobtoc",
             "clicks": 53,
-            "impressions": 20459,
-            "ctr": 0.26,
-            "position": 6.0
+            "impressions": 3747,
+            "ctr": 1.41,
+            "position": 2.9
           },
           {
             "query": "d2cブランド",
             "clicks": 52,
-            "impressions": 2947,
-            "ctr": 1.76,
+            "impressions": 2996,
+            "ctr": 1.74,
             "position": 2.4
           },
           {
-            "query": "w2 repeat",
-            "clicks": 51,
-            "impressions": 422,
-            "ctr": 12.09,
-            "position": 6.3
+            "query": "ｗ２",
+            "clicks": 52,
+            "impressions": 867,
+            "ctr": 6.0,
+            "position": 1.5
           }
         ]
       },
@@ -1115,8 +1124,8 @@
           "by_source": [
             {
               "source": "セミナー/共催(アライアンス)",
-              "info_count": 178,
-              "mql_count": 16
+              "info_count": 175,
+              "mql_count": 19
             },
             {
               "source": "展示会",
@@ -1125,17 +1134,17 @@
             },
             {
               "source": "BOXIL",
-              "info_count": 39,
-              "mql_count": 87
+              "info_count": 32,
+              "mql_count": 83
             },
             {
               "source": "HP",
               "info_count": 9,
-              "mql_count": 41
+              "mql_count": 39
             },
             {
               "source": "ミカタWP",
-              "info_count": 23,
+              "info_count": 22,
               "mql_count": 5
             },
             {
@@ -1146,7 +1155,7 @@
             {
               "source": "リスティング広告",
               "info_count": 1,
-              "mql_count": 12
+              "mql_count": 11
             },
             {
               "source": "FB広告（製品獲得）",
@@ -1154,19 +1163,14 @@
               "mql_count": 10
             },
             {
-              "source": "ディスプレイ/FB広告",
-              "info_count": 5,
-              "mql_count": 2
-            },
-            {
               "source": "セミナー/単独",
               "info_count": 5,
               "mql_count": 1
             },
             {
-              "source": "通販通信WP",
-              "info_count": 3,
-              "mql_count": 0
+              "source": "ディスプレイ/FB広告",
+              "info_count": 4,
+              "mql_count": 1
             },
             {
               "source": "その他",
@@ -1184,6 +1188,11 @@
               "mql_count": 1
             },
             {
+              "source": "通販通信WP",
+              "info_count": 1,
+              "mql_count": 0
+            },
+            {
               "source": "ウェビナー、ウェブイベント（社外）",
               "info_count": 1,
               "mql_count": 0
@@ -1192,28 +1201,33 @@
               "source": "受電",
               "info_count": 0,
               "mql_count": 1
+            },
+            {
+              "source": "eccLab",
+              "info_count": 1,
+              "mql_count": 0
             }
           ],
-          "total_info": 377,
-          "total_mql": 227
+          "total_info": 364,
+          "total_mql": 222
         },
         "opportunities": {
           "by_product": [
             {
               "source": "Std",
-              "total": 60
+              "total": 55
             },
             {
               "source": "08）w2Commerce EP",
-              "total": 25
+              "total": 24
             },
             {
               "source": "06）w2Commerce EP（ミニ）",
-              "total": 19
+              "total": 17
             },
             {
               "source": "V5",
-              "total": 10
+              "total": 11
             },
             {
               "source": "Pro",
@@ -1224,12 +1238,12 @@
               "total": 5
             },
             {
-              "source": "Other",
+              "source": "07）リピートPLUS EP",
               "total": 2
             },
             {
-              "source": "07）リピートPLUS EP",
-              "total": 2
+              "source": "Other",
+              "total": 1
             },
             {
               "source": "w2Cloud SaaS Standard",
@@ -1239,11 +1253,11 @@
           "by_source": [
             {
               "source": "展示会",
-              "total": 22
+              "total": 20
             },
             {
               "source": "HP",
-              "total": 21
+              "total": 19
             },
             {
               "source": "アライアンス",
@@ -1259,7 +1273,7 @@
             },
             {
               "source": "リスティング広告",
-              "total": 9
+              "total": 8
             },
             {
               "source": "アウトバウンド",
@@ -1270,10 +1284,6 @@
               "total": 5
             },
             {
-              "source": "FB広告（製品獲得）",
-              "total": 4
-            },
-            {
               "source": "ウェビナー、ウェブイベント（社外）",
               "total": 4
             },
@@ -1282,27 +1292,19 @@
               "total": 3
             },
             {
+              "source": "FB広告（製品獲得）",
+              "total": 3
+            },
+            {
               "source": "ミカタWP",
               "total": 2
             },
             {
-              "source": "ホワイトペーパー（HP）",
-              "total": 1
-            },
-            {
-              "source": "ミカタ/資料DL",
-              "total": 1
-            },
-            {
-              "source": "不明",
-              "total": 1
-            },
-            {
-              "source": "オフラインイベント",
-              "total": 1
-            },
-            {
               "source": "その他",
+              "total": 1
+            },
+            {
+              "source": "受電",
               "total": 1
             },
             {
@@ -1310,11 +1312,15 @@
               "total": 1
             },
             {
-              "source": "受電",
+              "source": "ミカタ/資料DL",
+              "total": 1
+            },
+            {
+              "source": "オフラインイベント",
               "total": 1
             }
           ],
-          "total": 130
+          "total": 122
         },
         "additional_mql": {
           "by_source": [
@@ -1335,7 +1341,7 @@
               "total": 6
             },
             {
-              "source": "セミナー/共催(アライアンス)",
+              "source": "ミツモア",
               "total": 4
             },
             {
@@ -1343,12 +1349,12 @@
               "total": 3
             },
             {
-              "source": "ミツモア",
+              "source": "常設説明会",
               "total": 3
             },
             {
-              "source": "常設説明会",
-              "total": 3
+              "source": "セミナー/共催(アライアンス)",
+              "total": 2
             },
             {
               "source": "リスティング広告",
@@ -1371,7 +1377,7 @@
               "total": 1
             }
           ],
-          "total": 52
+          "total": 51
         }
       }
     }
